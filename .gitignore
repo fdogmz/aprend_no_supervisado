@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+
+# OS / editors
+.DS_Store
+.vscode/
+.ipynb_checkpoints/
+
+# Data (si NO quieres subir datasets reales)
+# data/
