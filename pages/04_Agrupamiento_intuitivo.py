@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="K-Means Paso a Paso", layout="wide")
 
-st.title("4) K-Means: La intuición mecánica")
+st.title("K-Means: La intuición mecánica")
 
 st.markdown("""
 El algoritmo K-Means es como un baile en dos pasos que se repite hasta que nadie se mueve.
