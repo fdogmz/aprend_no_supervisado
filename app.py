@@ -82,5 +82,5 @@ with footer_col2:
 
 # Opcional: Logo en la barra lateral para que persista en toda la navegación
 if os.path.exists(logo_path):
-    st.sidebar.image(logo_path, use_container_width=True)
+    st.sidebar.image(logo_path, width="stretch")
     st.sidebar.markdown("---")

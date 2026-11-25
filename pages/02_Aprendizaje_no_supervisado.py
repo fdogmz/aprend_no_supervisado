@@ -56,7 +56,7 @@ col_tabla, col_info = st.columns([1, 2])
 
 with col_tabla:
     # Mostramos solo el encabezado para no saturar
-    st.dataframe(datos.head(10), use_container_width=True)
+    st.dataframe(datos.head(10), width="stretch")
 
 with col_info:
     st.warning("⚠️ **¡Atención!**")

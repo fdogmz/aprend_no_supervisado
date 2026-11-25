@@ -29,7 +29,8 @@ with st.sidebar:
     st.header("📂 Selección del Caso")
     
     # Usamos tu función para llenar el selectbox
-    context = st.selectbox("Elige un dataset:", available_contexts())
+    # key="contexto": el caso elegido aquí sigue elegido en el laboratorio.
+    context = st.selectbox("Elige un dataset:", available_contexts(), key="contexto")
     
     # Obtenemos la info del contexto seleccionado
     info = context_info(context)
@@ -66,7 +67,7 @@ tab_datos, tab_stats, tab_viz = st.tabs(["🗃️ Datos Crudos", "📊 Estadíst
 with tab_datos:
     st.subheader("Muestra de datos")
     st.markdown(f"El dataset tiene **{df.shape[0]} filas** y **{df.shape[1]} columnas**.")
-    st.dataframe(df.head(50), use_container_width=True)
+    st.dataframe(df.head(50), width="stretch")
 
 # --- TAB 2: ESTADÍSTICAS ---
 with tab_stats:
@@ -81,7 +82,7 @@ with tab_stats:
     desc = df[cols_num].describe().T
     
     # Estilizamos la tabla para resaltar magnitudes (Opcional, requiere pandas reciente)
-    st.dataframe(desc.style.background_gradient(cmap="Blues"), use_container_width=True)
+    st.dataframe(desc.style.background_gradient(cmap="Blues"), width="stretch")
 
 # --- TAB 3: VISUALIZACIÓN ---
 with tab_viz:
@@ -106,15 +107,15 @@ with tab_viz:
 
         # Gráfico interactivo con Plotly
         fig = px.scatter(
-            df, 
-            x=x_axis, 
-            y=y_axis, 
-            hover_data=id_cols, # Al pasar el mouse, vemos el ID (ej. Municipio o Estudiante)
+            df,
+            x=x_axis,
+            y=y_axis,
+            hover_data=id_cols or None, # Al pasar el mouse, vemos el ID (ej. Municipio o Estudiante)
             title=f"Dispersión: {x_axis} vs {y_axis}",
             opacity=0.7,
             template="plotly_white"
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
         
         # Reflexión guiada
         st.divider()

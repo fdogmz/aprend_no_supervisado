@@ -1,0 +1,10 @@
+# Tema claro fijo: la app se proyecta en clase y las gráficas de Plotly usan
+# template="plotly_white". Sin esto, el tema oscuro del navegador deja recuadros
+# blancos sobre fondo negro.
+[theme]
+base = "light"
+primaryColor = "#C8102E"
+font = "sans serif"
+
+[server]
+headless = true
